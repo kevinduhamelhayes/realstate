@@ -9,16 +9,34 @@ import { Property } from "@/types/property";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { formatPrice } from "@/lib/format";
+import { useWishlist } from "@/context/WishlistContext";
+import { useState } from "react";
 
 interface PropertyCardProps {
   property: Property;
 }
 
 export default function PropertyCard({ property }: PropertyCardProps) {
+  const { isInWishlist, addToWishlist, removeFromWishlist } = useWishlist();
+  const [isWishlisted, setIsWishlisted] = useState(isInWishlist(property.id));
+  
   const primaryImage = property.images.find(img => img.isPrimary) || property.images[0];
   
   // Format price with currency symbol
   const price = formatPrice(property.price, property.listingType === 'rent');
+  
+  // Handle wishlist toggle
+  const handleWishlistToggle = (e: React.MouseEvent) => {
+    e.preventDefault(); // Prevent navigating to the property detail page
+    
+    if (isWishlisted) {
+      removeFromWishlist(property.id);
+    } else {
+      addToWishlist(property.id);
+    }
+    
+    setIsWishlisted(!isWishlisted);
+  };
   
   return (
     <Card className="overflow-hidden transition-all duration-300 hover:shadow-lg">
@@ -36,8 +54,11 @@ export default function PropertyCard({ property }: PropertyCardProps) {
         )}
         
         {/* Favorite button */}
-        <button className="absolute right-4 top-4 z-10 flex h-8 w-8 items-center justify-center rounded-full bg-white/80 text-gray-700 backdrop-blur-sm transition-colors hover:bg-white hover:text-rose-500">
-          <LuHeart className="h-5 w-5" />
+        <button 
+          className={`absolute right-4 top-4 z-10 flex h-8 w-8 items-center justify-center rounded-full bg-white/80 text-gray-700 backdrop-blur-sm transition-colors hover:bg-white ${isWishlisted ? 'text-rose-500' : 'hover:text-rose-500'}`}
+          onClick={handleWishlistToggle}
+        >
+          <LuHeart className={`h-5 w-5 ${isWishlisted ? 'fill-current' : ''}`} />
         </button>
         
         {/* Property image */}

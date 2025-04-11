@@ -1,16 +1,23 @@
 "use client";
 
 import Link from "next/link";
-import { LuSearch, LuBuilding, LuUser, LuMenu, LuX } from "react-icons/lu";
+import { LuSearch, LuBuilding, LuUser, LuMenu, LuX, LuHeart } from "react-icons/lu";
 import { HiHome } from "react-icons/hi";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
+import { useWishlist } from "@/context/WishlistContext";
 
 export default function Header() {
   const router = useRouter();
+  const { wishlist } = useWishlist();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
+  const [wishlistCount, setWishlistCount] = useState(0);
+
+  useEffect(() => {
+    setWishlistCount(wishlist.length);
+  }, [wishlist]);
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);
@@ -70,6 +77,19 @@ export default function Header() {
               <LuSearch className="h-4 w-4" />
             </Button>
           </form>
+          
+          <Link 
+            href="/wishlist" 
+            className="relative flex h-9 items-center justify-center rounded-md p-2 text-gray-700 hover:bg-gray-100"
+          >
+            <LuHeart className="h-5 w-5" />
+            {wishlistCount > 0 && (
+              <span className="absolute -right-1 -top-1 flex h-5 w-5 items-center justify-center rounded-full bg-primary text-xs font-medium text-white">
+                {wishlistCount}
+              </span>
+            )}
+          </Link>
+          
           <Button variant="default" size="sm">
             <LuBuilding className="mr-2 h-4 w-4" />
             Publicar propiedad
@@ -130,6 +150,14 @@ export default function Header() {
               onClick={() => setMobileMenuOpen(false)}
             >
               Contacto
+            </Link>
+            <Link 
+              href="/wishlist" 
+              className="flex items-center gap-2 py-2 text-sm font-medium text-gray-700 hover:text-primary"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              <LuHeart className="h-5 w-5" />
+              Mis favoritos {wishlistCount > 0 && <span className="ml-1 rounded-full bg-primary px-2 py-0.5 text-xs text-white">{wishlistCount}</span>}
             </Link>
             <div className="flex flex-col gap-2 pt-2">
               <form onSubmit={handleSearch} className="relative">
