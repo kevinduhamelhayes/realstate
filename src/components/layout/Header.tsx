@@ -4,13 +4,23 @@ import Link from "next/link";
 import { LuSearch, LuBuilding, LuUser, LuMenu, LuX } from "react-icons/lu";
 import { HiHome } from "react-icons/hi";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 
 export default function Header() {
+  const router = useRouter();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);
+  };
+
+  const handleSearch = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (searchTerm.trim()) {
+      router.push(`/properties?location=${encodeURIComponent(searchTerm.trim())}`);
+    }
   };
 
   return (
@@ -43,10 +53,23 @@ export default function Header() {
 
         {/* Desktop Action Buttons */}
         <div className="hidden items-center gap-4 md:flex">
-          <Button variant="outline" size="sm">
-            <LuSearch className="mr-2 h-4 w-4" />
-            Buscar
-          </Button>
+          <form onSubmit={handleSearch} className="relative">
+            <input
+              type="text"
+              placeholder="Buscar propiedades..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className="h-9 w-64 rounded-md border border-gray-300 px-3 py-2 pr-10 text-sm focus:border-primary focus:outline-none focus:ring-primary"
+            />
+            <Button 
+              type="submit" 
+              variant="ghost" 
+              size="icon" 
+              className="absolute right-0 top-0 h-9 w-9 text-gray-400 hover:text-primary"
+            >
+              <LuSearch className="h-4 w-4" />
+            </Button>
+          </form>
           <Button variant="default" size="sm">
             <LuBuilding className="mr-2 h-4 w-4" />
             Publicar propiedad
@@ -109,10 +132,23 @@ export default function Header() {
               Contacto
             </Link>
             <div className="flex flex-col gap-2 pt-2">
-              <Button variant="outline" size="sm" className="w-full justify-start">
-                <LuSearch className="mr-2 h-4 w-4" />
-                Buscar
-              </Button>
+              <form onSubmit={handleSearch} className="relative">
+                <input
+                  type="text"
+                  placeholder="Buscar propiedades..."
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                  className="w-full rounded-md border border-gray-300 px-3 py-2 pr-10 text-sm focus:border-primary focus:outline-none focus:ring-primary"
+                />
+                <Button 
+                  type="submit" 
+                  variant="ghost" 
+                  size="icon" 
+                  className="absolute right-0 top-0 h-full px-3 text-gray-400 hover:text-primary"
+                >
+                  <LuSearch className="h-4 w-4" />
+                </Button>
+              </form>
               <Button variant="default" size="sm" className="w-full justify-start">
                 <LuBuilding className="mr-2 h-4 w-4" />
                 Publicar propiedad
