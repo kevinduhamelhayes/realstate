@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import { LuBuilding, LuHome, LuMapPin, LuUsers } from "react-icons/lu";
+import { LuBuilding, LuMapPin, LuUsers } from "react-icons/lu";
+import { HiHome } from "react-icons/hi";
 
 import Hero from "@/components/layout/Hero";
 import PropertyCard from "@/components/property/PropertyCard";
@@ -59,7 +60,7 @@ export default function Home() {
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
             <div className="rounded-lg bg-white p-6 shadow-md">
               <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-full bg-primary-50 text-primary">
-                <LuHome className="h-6 w-6" />
+                <HiHome className="h-6 w-6" />
               </div>
               <h3 className="mb-3 text-xl font-semibold">Amplia selección</h3>
               <p className="text-gray-600">Ofrecemos una gran variedad de propiedades para todos los presupuestos y necesidades.</p>

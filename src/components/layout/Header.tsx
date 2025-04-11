@@ -1,5 +1,8 @@
+"use client";
+
 import Link from "next/link";
-import { LuHome, LuSearch, LuBuilding, LuUser, LuMenu, LuX } from "react-icons/lu";
+import { LuSearch, LuBuilding, LuUser, LuMenu, LuX } from "react-icons/lu";
+import { HiHome } from "react-icons/hi";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 
@@ -15,7 +18,7 @@ export default function Header() {
       <div className="container mx-auto flex h-16 items-center justify-between px-4 sm:px-6">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 text-xl font-bold text-primary">
-          <LuHome className="h-6 w-6" />
+          <HiHome className="h-6 w-6" />
           <span>InmoEstate</span>
         </Link>
 
@@ -72,7 +75,7 @@ export default function Header() {
               className="flex items-center gap-2 py-2 text-sm font-medium text-gray-700 hover:text-primary"
               onClick={() => setMobileMenuOpen(false)}
             >
-              <LuHome className="h-5 w-5" />
+              <HiHome className="h-5 w-5" />
               Inicio
             </Link>
             <Link 

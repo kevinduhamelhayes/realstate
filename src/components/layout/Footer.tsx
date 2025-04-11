@@ -1,5 +1,8 @@
+"use client";
+
 import Link from "next/link";
-import { LuHome, LuMail, LuPhone, LuMapPin, LuFacebook, LuInstagram, LuTwitter, LuLinkedin } from "react-icons/lu";
+import { LuMail, LuPhone, LuMapPin, LuFacebook, LuInstagram, LuTwitter, LuLinkedin } from "react-icons/lu";
+import { HiHome } from "react-icons/hi";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -11,7 +14,7 @@ export default function Footer() {
           {/* Company Info */}
           <div>
             <div className="flex items-center gap-2 text-xl font-bold text-white">
-              <LuHome className="h-6 w-6" />
+              <HiHome className="h-6 w-6" />
               <span>InmoEstate</span>
             </div>
             <p className="mt-4 text-sm leading-6">
