@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { db } from "@/lib/firebase";
+import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 
 export default function LeadFormDarEnAlquiler() {
   const [form, setForm] = useState({
@@ -15,21 +17,32 @@ export default function LeadFormDarEnAlquiler() {
   });
   const [enviado, setEnviado] = useState(false);
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Validación básica
     if (!form.nombre || !form.apellido || !form.email || !form.telefono || !form.direccion || !form.tipoPropiedad || !form.metros || !form.habitaciones || !form.banos || !form.precioAlquiler) {
       setError("Por favor completa los campos obligatorios.");
       return;
     }
     setError("");
-    // TODO: Integrar con Firebase
-    setEnviado(true);
+    setLoading(true);
+    try {
+      await addDoc(collection(db, "leads"), {
+        ...form,
+        tipo: "dar-en-alquiler",
+        createdAt: serverTimestamp(),
+      });
+      setEnviado(true);
+    } catch (err) {
+      setError("Ocurrió un error al enviar el formulario. Intenta nuevamente.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   if (enviado) {
@@ -94,7 +107,7 @@ export default function LeadFormDarEnAlquiler() {
         <label className="block mb-1 font-medium">Precio de alquiler mensual deseado *</label>
         <input name="precioAlquiler" value={form.precioAlquiler} onChange={handleChange} className="w-full border rounded px-3 py-2" required />
       </div>
-      <button type="submit" className="w-full bg-primary text-white py-2 rounded font-semibold hover:bg-primary-700 transition">Enviar</button>
+      <button type="submit" className="w-full bg-primary text-white py-2 rounded font-semibold hover:bg-primary-700 transition" disabled={loading}>{loading ? "Enviando..." : "Enviar"}</button>
     </form>
   );
 } 

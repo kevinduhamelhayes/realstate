@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { db } from "@/lib/firebase";
+import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 
 export default function LeadFormBuscoAlquilar() {
   const [form, setForm] = useState({
@@ -14,21 +16,32 @@ export default function LeadFormBuscoAlquilar() {
   });
   const [enviado, setEnviado] = useState(false);
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Validación básica
     if (!form.nombre || !form.apellido || !form.email || !form.telefono || !form.tipoPropiedad || !form.zonas || !form.precioAlquiler) {
       setError("Por favor completa los campos obligatorios.");
       return;
     }
     setError("");
-    // TODO: Integrar con Firebase
-    setEnviado(true);
+    setLoading(true);
+    try {
+      await addDoc(collection(db, "leads"), {
+        ...form,
+        tipo: "busco-alquilar",
+        createdAt: serverTimestamp(),
+      });
+      setEnviado(true);
+    } catch (err) {
+      setError("Ocurrió un error al enviar el formulario. Intenta nuevamente.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   if (enviado) {
@@ -88,7 +101,7 @@ export default function LeadFormBuscoAlquilar() {
           <input name="banos" value={form.banos} onChange={handleChange} className="w-full border rounded px-3 py-2" />
         </div>
       </div>
-      <button type="submit" className="w-full bg-primary text-white py-2 rounded font-semibold hover:bg-primary-700 transition">Enviar</button>
+      <button type="submit" className="w-full bg-primary text-white py-2 rounded font-semibold hover:bg-primary-700 transition" disabled={loading}>{loading ? "Enviando..." : "Enviar"}</button>
     </form>
   );
 } 

@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { db } from "@/lib/firebase";
+import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 
 export default function LeadFormVender() {
   const [form, setForm] = useState({
@@ -15,21 +17,32 @@ export default function LeadFormVender() {
   });
   const [enviado, setEnviado] = useState(false);
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Validación básica
     if (!form.nombre || !form.apellido || !form.email || !form.telefono || !form.direccion || !form.tipoPropiedad || !form.metros || !form.habitaciones || !form.banos) {
       setError("Por favor completa los campos obligatorios.");
       return;
     }
     setError("");
-    // TODO: Integrar con Firebase
-    setEnviado(true);
+    setLoading(true);
+    try {
+      await addDoc(collection(db, "leads"), {
+        ...form,
+        tipo: "vender",
+        createdAt: serverTimestamp(),
+      });
+      setEnviado(true);
+    } catch (err) {
+      setError("Ocurrió un error al enviar el formulario. Intenta nuevamente.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   if (enviado) {
@@ -94,7 +107,7 @@ export default function LeadFormVender() {
         <label className="block mb-1 font-medium">Precio de venta estimado (opcional)</label>
         <input name="precio" value={form.precio} onChange={handleChange} className="w-full border rounded px-3 py-2" />
       </div>
-      <button type="submit" className="w-full bg-primary text-white py-2 rounded font-semibold hover:bg-primary-700 transition">Enviar</button>
+      <button type="submit" className="w-full bg-primary text-white py-2 rounded font-semibold hover:bg-primary-700 transition" disabled={loading}>{loading ? "Enviando..." : "Enviar"}</button>
     </form>
   );
 } 
