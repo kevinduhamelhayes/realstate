@@ -1,0 +1,100 @@
+import { useState } from "react";
+
+export default function LeadFormVender() {
+  const [form, setForm] = useState({
+    nombre: "",
+    apellido: "",
+    email: "",
+    telefono: "",
+    direccion: "",
+    tipoPropiedad: "",
+    metros: "",
+    habitaciones: "",
+    banos: "",
+    precio: "",
+  });
+  const [enviado, setEnviado] = useState(false);
+  const [error, setError] = useState("");
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Validación básica
+    if (!form.nombre || !form.apellido || !form.email || !form.telefono || !form.direccion || !form.tipoPropiedad || !form.metros || !form.habitaciones || !form.banos) {
+      setError("Por favor completa los campos obligatorios.");
+      return;
+    }
+    setError("");
+    // TODO: Integrar con Firebase
+    setEnviado(true);
+  };
+
+  if (enviado) {
+    return (
+      <div className="max-w-md mx-auto mt-10 p-6 rounded-lg bg-green-50 text-green-800 text-center">
+        <h2 className="text-2xl font-bold mb-2">¡Gracias!</h2>
+        <p>Hemos recibido tu solicitud. Nos pondremos en contacto a la brevedad.</p>
+      </div>
+    );
+  }
+
+  return (
+    <form onSubmit={handleSubmit} className="max-w-md mx-auto mt-10 p-6 rounded-lg bg-white shadow">
+      <h1 className="text-2xl font-bold mb-6 text-primary">Formulario: Quiero vender mi propiedad</h1>
+      {error && <div className="mb-4 text-red-600">{error}</div>}
+      <div className="mb-4">
+        <label className="block mb-1 font-medium">Nombre *</label>
+        <input name="nombre" value={form.nombre} onChange={handleChange} className="w-full border rounded px-3 py-2" required />
+      </div>
+      <div className="mb-4">
+        <label className="block mb-1 font-medium">Apellido *</label>
+        <input name="apellido" value={form.apellido} onChange={handleChange} className="w-full border rounded px-3 py-2" required />
+      </div>
+      <div className="mb-4">
+        <label className="block mb-1 font-medium">Email *</label>
+        <input name="email" type="email" value={form.email} onChange={handleChange} className="w-full border rounded px-3 py-2" required />
+      </div>
+      <div className="mb-4">
+        <label className="block mb-1 font-medium">Teléfono *</label>
+        <input name="telefono" value={form.telefono} onChange={handleChange} className="w-full border rounded px-3 py-2" required />
+      </div>
+      <div className="mb-4">
+        <label className="block mb-1 font-medium">Dirección de la propiedad *</label>
+        <input name="direccion" value={form.direccion} onChange={handleChange} className="w-full border rounded px-3 py-2" required />
+      </div>
+      <div className="mb-4">
+        <label className="block mb-1 font-medium">Tipo de propiedad *</label>
+        <select name="tipoPropiedad" value={form.tipoPropiedad} onChange={handleChange} className="w-full border rounded px-3 py-2" required>
+          <option value="">Selecciona una opción</option>
+          <option value="casa">Casa</option>
+          <option value="departamento">Departamento</option>
+          <option value="terreno">Terreno</option>
+          <option value="ph">PH</option>
+          <option value="otro">Otro</option>
+        </select>
+      </div>
+      <div className="mb-4">
+        <label className="block mb-1 font-medium">M² aproximados *</label>
+        <input name="metros" value={form.metros} onChange={handleChange} className="w-full border rounded px-3 py-2" required />
+      </div>
+      <div className="mb-4 grid grid-cols-2 gap-4">
+        <div>
+          <label className="block mb-1 font-medium">Habitaciones *</label>
+          <input name="habitaciones" value={form.habitaciones} onChange={handleChange} className="w-full border rounded px-3 py-2" required />
+        </div>
+        <div>
+          <label className="block mb-1 font-medium">Baños *</label>
+          <input name="banos" value={form.banos} onChange={handleChange} className="w-full border rounded px-3 py-2" required />
+        </div>
+      </div>
+      <div className="mb-4">
+        <label className="block mb-1 font-medium">Precio de venta estimado (opcional)</label>
+        <input name="precio" value={form.precio} onChange={handleChange} className="w-full border rounded px-3 py-2" />
+      </div>
+      <button type="submit" className="w-full bg-primary text-white py-2 rounded font-semibold hover:bg-primary-700 transition">Enviar</button>
+    </form>
+  );
+} 
