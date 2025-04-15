@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { LuBuilding, LuMapPin, LuUsers } from "react-icons/lu";
 import { HiHome } from "react-icons/hi";
+import { LuUser } from "react-icons/lu";
 
 import Hero from "@/components/layout/Hero";
 import PropertyCard from "@/components/property/PropertyCard";
@@ -20,6 +21,48 @@ export default function Home() {
     <div className="flex flex-col">
       {/* Hero Section */}
       <Hero />
+      
+      {/* Servicios/CTA Section */}
+      <section className="py-12 bg-primary-50">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="mb-10 text-center">
+            <h2 className="mb-2 text-3xl font-bold tracking-tight sm:text-4xl text-primary">¿Qué necesitas hoy?</h2>
+            <p className="mx-auto max-w-2xl text-gray-700">
+              Elige una opción y completa el formulario. ¡Te contactamos a la brevedad!
+            </p>
+          </div>
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            <Link href="/leads/comprar" className="group flex flex-col items-center rounded-xl bg-white p-6 shadow-md transition hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-primary">
+              <span className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-primary text-white group-hover:bg-primary-700">
+                <HiHome className="h-6 w-6" />
+              </span>
+              <h3 className="mb-2 text-lg font-semibold text-primary">Quiero Comprar</h3>
+              <p className="text-center text-sm text-gray-600">Encuentra la propiedad ideal para ti.</p>
+            </Link>
+            <Link href="/leads/vender" className="group flex flex-col items-center rounded-xl bg-white p-6 shadow-md transition hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-primary">
+              <span className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-primary text-white group-hover:bg-primary-700">
+                <LuBuilding className="h-6 w-6" />
+              </span>
+              <h3 className="mb-2 text-lg font-semibold text-primary">Quiero Vender</h3>
+              <p className="text-center text-sm text-gray-600">Vende tu propiedad con asesoramiento profesional.</p>
+            </Link>
+            <Link href="/leads/busco-alquilar" className="group flex flex-col items-center rounded-xl bg-white p-6 shadow-md transition hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-primary">
+              <span className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-primary text-white group-hover:bg-primary-700">
+                <LuUser className="h-6 w-6" />
+              </span>
+              <h3 className="mb-2 text-lg font-semibold text-primary">Busco Alquilar</h3>
+              <p className="text-center text-sm text-gray-600">Te ayudamos a encontrar el alquiler perfecto.</p>
+            </Link>
+            <Link href="/leads/dar-en-alquiler" className="group flex flex-col items-center rounded-xl bg-white p-6 shadow-md transition hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-primary">
+              <span className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-primary text-white group-hover:bg-primary-700">
+                <LuBuilding className="h-6 w-6" />
+              </span>
+              <h3 className="mb-2 text-lg font-semibold text-primary">Dar en Alquiler</h3>
+              <p className="text-center text-sm text-gray-600">Publica tu propiedad para alquilar fácilmente.</p>
+            </Link>
+          </div>
+        </div>
+      </section>
       
       {/* Featured Properties Section */}
       <section className="py-16">
