@@ -121,6 +121,10 @@ export default function Footer() {
                 <a href="mailto:info@inmoestate.com" className="hover:text-white">info@inmoestate.com</a>
               </li>
             </ul>
+            <div className="mt-6 space-y-2">
+              <Link href="/legal" className="block text-xs text-gray-400 hover:text-white underline">Aviso legal</Link>
+              <Link href="/privacidad" className="block text-xs text-gray-400 hover:text-white underline">Política de privacidad</Link>
+            </div>
           </div>
         </div>
         
