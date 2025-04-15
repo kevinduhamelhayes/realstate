@@ -44,14 +44,17 @@ export default function Header() {
           <Link href="/" className="text-sm font-medium text-gray-700 hover:text-primary">
             Inicio
           </Link>
-          <Link href="/properties" className="text-sm font-medium text-gray-700 hover:text-primary">
-            Propiedades
+          <Link href="/leads/comprar" className="text-sm font-medium text-gray-700 hover:text-primary">
+            Comprar
           </Link>
-          <Link href="/agents" className="text-sm font-medium text-gray-700 hover:text-primary">
-            Agentes
+          <Link href="/leads/vender" className="text-sm font-medium text-gray-700 hover:text-primary">
+            Vender
           </Link>
-          <Link href="/about" className="text-sm font-medium text-gray-700 hover:text-primary">
-            Nosotros
+          <Link href="/leads/busco-alquilar" className="text-sm font-medium text-gray-700 hover:text-primary">
+            Quiero Alquilar
+          </Link>
+          <Link href="/leads/dar-en-alquiler" className="text-sm font-medium text-gray-700 hover:text-primary">
+            Dar en Alquiler
           </Link>
           <Link href="/contact" className="text-sm font-medium text-gray-700 hover:text-primary">
             Contacto
@@ -90,9 +93,11 @@ export default function Header() {
             )}
           </Link>
           
-          <Button variant="default" size="sm">
-            <LuBuilding className="mr-2 h-4 w-4" />
-            Publicar propiedad
+          <Button variant="default" size="sm" asChild>
+            <Link href="/leads/dar-en-alquiler">
+              <LuBuilding className="mr-2 h-4 w-4" />
+              Publicar propiedad
+            </Link>
           </Button>
         </div>
 
@@ -122,27 +127,32 @@ export default function Header() {
               Inicio
             </Link>
             <Link 
-              href="/properties" 
+              href="/leads/comprar" 
               className="flex items-center gap-2 py-2 text-sm font-medium text-gray-700 hover:text-primary"
               onClick={() => setMobileMenuOpen(false)}
             >
-              <LuBuilding className="h-5 w-5" />
-              Propiedades
+              Comprar
             </Link>
             <Link 
-              href="/agents" 
+              href="/leads/vender" 
               className="flex items-center gap-2 py-2 text-sm font-medium text-gray-700 hover:text-primary"
               onClick={() => setMobileMenuOpen(false)}
             >
-              <LuUser className="h-5 w-5" />
-              Agentes
+              Vender
             </Link>
             <Link 
-              href="/about" 
-              className="py-2 text-sm font-medium text-gray-700 hover:text-primary"
+              href="/leads/busco-alquilar" 
+              className="flex items-center gap-2 py-2 text-sm font-medium text-gray-700 hover:text-primary"
               onClick={() => setMobileMenuOpen(false)}
             >
-              Nosotros
+              Quiero Alquilar
+            </Link>
+            <Link 
+              href="/leads/dar-en-alquiler" 
+              className="flex items-center gap-2 py-2 text-sm font-medium text-gray-700 hover:text-primary"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Dar en Alquiler
             </Link>
             <Link 
               href="/contact" 
@@ -177,9 +187,11 @@ export default function Header() {
                   <LuSearch className="h-4 w-4" />
                 </Button>
               </form>
-              <Button variant="default" size="sm" className="w-full justify-start">
-                <LuBuilding className="mr-2 h-4 w-4" />
-                Publicar propiedad
+              <Button variant="default" size="sm" asChild className="w-full justify-start">
+                <Link href="/leads/dar-en-alquiler">
+                  <LuBuilding className="mr-2 h-4 w-4" />
+                  Publicar propiedad
+                </Link>
               </Button>
             </div>
           </div>
