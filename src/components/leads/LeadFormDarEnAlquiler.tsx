@@ -47,9 +47,11 @@ export default function LeadFormDarEnAlquiler() {
 
   if (enviado) {
     return (
-      <div className="max-w-md mx-auto mt-10 p-6 rounded-lg bg-green-50 text-green-800 text-center">
-        <h2 className="text-2xl font-bold mb-2">¡Gracias!</h2>
-        <p>Hemos recibido tu solicitud. Nos pondremos en contacto a la brevedad.</p>
+      <div className="max-w-md mx-auto mt-10 p-8 rounded-2xl bg-green-100 text-green-900 text-center shadow-lg flex flex-col items-center gap-4">
+        <svg className="h-12 w-12 text-green-600 mx-auto" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" /></svg>
+        <h2 className="text-2xl font-bold">¡Gracias por tu interés!</h2>
+        <p className="text-base">Hemos recibido tu solicitud y nos pondremos en contacto a la brevedad.</p>
+        <a href="/" className="mt-2 inline-block rounded bg-primary px-4 py-2 text-white font-semibold shadow hover:bg-primary-700 transition">Volver al inicio</a>
       </div>
     );
   }
