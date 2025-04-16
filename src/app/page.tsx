@@ -68,7 +68,7 @@ export default function Home() {
       <section className="py-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-10 text-center">
-            <h2 className="mb-2 text-3xl font-bold tracking-tight sm:text-4xl">Propiedades destacadas</h2>
+            <h2 className="mb-2 text-3xl font-bold tracking-tight text-gray-800 sm:text-4xl">Propiedades destacadas</h2>
             <p className="mx-auto max-w-2xl text-gray-600">
               Explora nuestras propiedades más exclusivas y encuentra tu próximo hogar de ensueño.
             </p>
@@ -94,7 +94,7 @@ export default function Home() {
       <section className="bg-gray-50 py-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-10 text-center">
-            <h2 className="mb-2 text-3xl font-bold tracking-tight sm:text-4xl">¿Por qué elegirnos?</h2>
+            <h2 className="mb-2 text-3xl font-bold tracking-tight text-gray-800 sm:text-4xl">¿Por qué elegirnos?</h2>
             <p className="mx-auto max-w-2xl text-gray-600">
               Nos dedicamos a encontrar la propiedad perfecta para cada cliente con un servicio personalizado.
             </p>
@@ -105,7 +105,7 @@ export default function Home() {
               <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-full bg-primary-50 text-primary">
                 <HiHome className="h-6 w-6" />
               </div>
-              <h3 className="mb-3 text-xl font-semibold">Amplia selección</h3>
+              <h3 className="mb-3 text-xl font-semibold text-gray-800">Amplia selección</h3>
               <p className="text-gray-600">Ofrecemos una gran variedad de propiedades para todos los presupuestos y necesidades.</p>
             </div>
             
@@ -113,7 +113,7 @@ export default function Home() {
               <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-full bg-primary-50 text-primary">
                 <LuUsers className="h-6 w-6" />
               </div>
-              <h3 className="mb-3 text-xl font-semibold">Agentes expertos</h3>
+              <h3 className="mb-3 text-xl font-semibold text-gray-800">Agentes expertos</h3>
               <p className="text-gray-600">Nuestro equipo de profesionales está altamente capacitado para asesorarte en todo el proceso.</p>
             </div>
             
@@ -121,7 +121,7 @@ export default function Home() {
               <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-full bg-primary-50 text-primary">
                 <LuMapPin className="h-6 w-6" />
               </div>
-              <h3 className="mb-3 text-xl font-semibold">Mejores ubicaciones</h3>
+              <h3 className="mb-3 text-xl font-semibold text-gray-800">Mejores ubicaciones</h3>
               <p className="text-gray-600">Propiedades en las zonas más demandadas y con excelente potencial de inversión.</p>
             </div>
             
@@ -129,7 +129,7 @@ export default function Home() {
               <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-full bg-primary-50 text-primary">
                 <LuBuilding className="h-6 w-6" />
               </div>
-              <h3 className="mb-3 text-xl font-semibold">Inversiones seguras</h3>
+              <h3 className="mb-3 text-xl font-semibold text-gray-800">Inversiones seguras</h3>
               <p className="text-gray-600">Te ayudamos a encontrar propiedades con buen retorno de inversión y seguridad legal.</p>
             </div>
           </div>
@@ -140,7 +140,7 @@ export default function Home() {
       <section className="py-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-10 text-center">
-            <h2 className="mb-2 text-3xl font-bold tracking-tight sm:text-4xl">Nuestros Agentes</h2>
+            <h2 className="mb-2 text-3xl font-bold tracking-tight text-gray-800 sm:text-4xl">Nuestros Agentes</h2>
             <p className="mx-auto max-w-2xl text-gray-600">
               Profesionales dedicados a encontrar la propiedad perfecta para ti.
             </p>
@@ -158,7 +158,7 @@ export default function Home() {
                     className="h-full w-full object-cover"
                   />
                 </div>
-                <h3 className="mb-1 text-xl font-semibold">{agent.name}</h3>
+                <h3 className="mb-1 text-xl font-semibold text-gray-800">{agent.name}</h3>
                 <p className="mb-3 text-sm text-gray-500">{agent.title}</p>
                 <p className="mb-4 text-gray-600">{agent.bio?.substring(0, 120)}...</p>
                 <Button asChild variant="outline" className="w-full">
@@ -183,8 +183,8 @@ export default function Home() {
       {/* CTA Section */}
       <section className="bg-primary py-16 text-white">
         <div className="container mx-auto px-4 text-center sm:px-6 lg:px-8">
-          <h2 className="mb-4 text-3xl font-bold sm:text-4xl">¿Listo para encontrar tu hogar ideal?</h2>
-          <p className="mx-auto mb-8 max-w-2xl">
+          <h2 className="mb-4 text-3xl font-bold sm:text-4xl text-white">¿Listo para encontrar tu hogar ideal?</h2>
+          <p className="mx-auto mb-8 max-w-2xl text-white">
             Ponte en contacto con nosotros hoy mismo y déjanos ayudarte a encontrar la propiedad perfecta para ti.
           </p>
           <div className="flex flex-col gap-4 sm:flex-row sm:justify-center">

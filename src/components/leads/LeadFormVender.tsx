@@ -51,8 +51,8 @@ export default function LeadFormVender() {
     return (
       <div className="max-w-md mx-auto mt-10 p-8 rounded-2xl bg-green-100 text-green-900 text-center shadow-lg flex flex-col items-center gap-4">
         <svg className="h-12 w-12 text-green-600 mx-auto" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" /></svg>
-        <h2 className="text-2xl font-bold">¡Gracias por tu interés!</h2>
-        <p className="text-base">Hemos recibido tu solicitud y nos pondremos en contacto a la brevedad.</p>
+        <h2 className="text-2xl font-bold text-green-800">¡Gracias por tu interés!</h2>
+        <p className="text-base text-green-700">Hemos recibido tu solicitud y nos pondremos en contacto a la brevedad.</p>
         <a href="/" className="mt-2 inline-block rounded bg-primary px-4 py-2 text-white font-semibold shadow hover:bg-primary-700 transition">Volver al inicio</a>
       </div>
     );
@@ -63,27 +63,27 @@ export default function LeadFormVender() {
       <h1 className="text-2xl font-bold mb-6 text-primary">Formulario: Quiero vender mi propiedad</h1>
       {error && <div className="mb-4 text-red-600">{error}</div>}
       <div className="mb-4">
-        <label className="block mb-1 font-medium">Nombre *</label>
+        <label className="block mb-1 font-medium text-gray-700">Nombre *</label>
         <input name="nombre" value={form.nombre} onChange={handleChange} className="w-full border rounded px-3 py-2" required />
       </div>
       <div className="mb-4">
-        <label className="block mb-1 font-medium">Apellido *</label>
+        <label className="block mb-1 font-medium text-gray-700">Apellido *</label>
         <input name="apellido" value={form.apellido} onChange={handleChange} className="w-full border rounded px-3 py-2" required />
       </div>
       <div className="mb-4">
-        <label className="block mb-1 font-medium">Email *</label>
+        <label className="block mb-1 font-medium text-gray-700">Email *</label>
         <input name="email" type="email" value={form.email} onChange={handleChange} className="w-full border rounded px-3 py-2" required />
       </div>
       <div className="mb-4">
-        <label className="block mb-1 font-medium">Teléfono *</label>
+        <label className="block mb-1 font-medium text-gray-700">Teléfono *</label>
         <input name="telefono" value={form.telefono} onChange={handleChange} className="w-full border rounded px-3 py-2" required />
       </div>
       <div className="mb-4">
-        <label className="block mb-1 font-medium">Dirección de la propiedad *</label>
+        <label className="block mb-1 font-medium text-gray-700">Dirección de la propiedad *</label>
         <input name="direccion" value={form.direccion} onChange={handleChange} className="w-full border rounded px-3 py-2" required />
       </div>
       <div className="mb-4">
-        <label className="block mb-1 font-medium">Tipo de propiedad *</label>
+        <label className="block mb-1 font-medium text-gray-700">Tipo de propiedad *</label>
         <select name="tipoPropiedad" value={form.tipoPropiedad} onChange={handleChange} className="w-full border rounded px-3 py-2" required>
           <option value="">Selecciona una opción</option>
           <option value="casa">Casa</option>
@@ -94,21 +94,21 @@ export default function LeadFormVender() {
         </select>
       </div>
       <div className="mb-4">
-        <label className="block mb-1 font-medium">M² aproximados *</label>
+        <label className="block mb-1 font-medium text-gray-700">M² aproximados *</label>
         <input name="metros" value={form.metros} onChange={handleChange} className="w-full border rounded px-3 py-2" required />
       </div>
       <div className="mb-4 grid grid-cols-2 gap-4">
         <div>
-          <label className="block mb-1 font-medium">Habitaciones *</label>
+          <label className="block mb-1 font-medium text-gray-700">Habitaciones *</label>
           <input name="habitaciones" value={form.habitaciones} onChange={handleChange} className="w-full border rounded px-3 py-2" required />
         </div>
         <div>
-          <label className="block mb-1 font-medium">Baños *</label>
+          <label className="block mb-1 font-medium text-gray-700">Baños *</label>
           <input name="banos" value={form.banos} onChange={handleChange} className="w-full border rounded px-3 py-2" required />
         </div>
       </div>
       <div className="mb-4">
-        <label className="block mb-1 font-medium">Precio de venta estimado (opcional)</label>
+        <label className="block mb-1 font-medium text-gray-700">Precio de venta estimado (opcional)</label>
         <input name="precio" value={form.precio} onChange={handleChange} className="w-full border rounded px-3 py-2" />
       </div>
       <button type="submit" className="w-full bg-primary text-white py-2 rounded font-semibold hover:bg-primary-700 transition" disabled={loading}>{loading ? "Enviando..." : "Enviar"}</button>

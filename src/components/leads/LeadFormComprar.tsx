@@ -50,8 +50,8 @@ export default function LeadFormComprar() {
     return (
       <div className="max-w-md mx-auto mt-10 p-8 rounded-2xl bg-green-100 text-green-900 text-center shadow-lg flex flex-col items-center gap-4">
         <svg className="h-12 w-12 text-green-600 mx-auto" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" /></svg>
-        <h2 className="text-2xl font-bold">¡Gracias por tu interés!</h2>
-        <p className="text-base">Hemos recibido tu solicitud y nos pondremos en contacto a la brevedad.</p>
+        <h2 className="text-2xl font-bold text-green-800">¡Gracias por tu interés!</h2>
+        <p className="text-base text-green-700">Hemos recibido tu solicitud y nos pondremos en contacto a la brevedad.</p>
         <a href="/" className="mt-2 inline-block rounded bg-primary px-4 py-2 text-white font-semibold shadow hover:bg-primary-700 transition">Volver al inicio</a>
       </div>
     );
@@ -62,23 +62,23 @@ export default function LeadFormComprar() {
       <h1 className="text-2xl font-bold mb-6 text-primary">Formulario: Me interesa comprar</h1>
       {error && <div className="mb-4 text-red-600">{error}</div>}
       <div className="mb-4">
-        <label className="block mb-1 font-medium">Nombre *</label>
+        <label className="block mb-1 font-medium text-gray-700">Nombre *</label>
         <input name="nombre" value={form.nombre} onChange={handleChange} className="w-full border rounded px-3 py-2" required />
       </div>
       <div className="mb-4">
-        <label className="block mb-1 font-medium">Apellido *</label>
+        <label className="block mb-1 font-medium text-gray-700">Apellido *</label>
         <input name="apellido" value={form.apellido} onChange={handleChange} className="w-full border rounded px-3 py-2" required />
       </div>
       <div className="mb-4">
-        <label className="block mb-1 font-medium">Email *</label>
+        <label className="block mb-1 font-medium text-gray-700">Email *</label>
         <input name="email" type="email" value={form.email} onChange={handleChange} className="w-full border rounded px-3 py-2" required />
       </div>
       <div className="mb-4">
-        <label className="block mb-1 font-medium">Teléfono *</label>
+        <label className="block mb-1 font-medium text-gray-700">Teléfono *</label>
         <input name="telefono" value={form.telefono} onChange={handleChange} className="w-full border rounded px-3 py-2" required />
       </div>
       <div className="mb-4">
-        <label className="block mb-1 font-medium">Tipo de propiedad *</label>
+        <label className="block mb-1 font-medium text-gray-700">Tipo de propiedad *</label>
         <select name="tipoPropiedad" value={form.tipoPropiedad} onChange={handleChange} className="w-full border rounded px-3 py-2" required>
           <option value="">Selecciona una opción</option>
           <option value="casa">Casa</option>
@@ -89,20 +89,20 @@ export default function LeadFormComprar() {
         </select>
       </div>
       <div className="mb-4">
-        <label className="block mb-1 font-medium">Zona(s) de interés *</label>
+        <label className="block mb-1 font-medium text-gray-700">Zona(s) de interés *</label>
         <input name="zonas" value={form.zonas} onChange={handleChange} className="w-full border rounded px-3 py-2" required />
       </div>
       <div className="mb-4">
-        <label className="block mb-1 font-medium">Rango de presupuesto (opcional)</label>
+        <label className="block mb-1 font-medium text-gray-700">Rango de presupuesto (opcional)</label>
         <input name="presupuesto" value={form.presupuesto} onChange={handleChange} className="w-full border rounded px-3 py-2" />
       </div>
       <div className="mb-4 grid grid-cols-2 gap-4">
         <div>
-          <label className="block mb-1 font-medium">Habitaciones (opcional)</label>
+          <label className="block mb-1 font-medium text-gray-700">Habitaciones (opcional)</label>
           <input name="habitaciones" value={form.habitaciones} onChange={handleChange} className="w-full border rounded px-3 py-2" />
         </div>
         <div>
-          <label className="block mb-1 font-medium">Baños (opcional)</label>
+          <label className="block mb-1 font-medium text-gray-700">Baños (opcional)</label>
           <input name="banos" value={form.banos} onChange={handleChange} className="w-full border rounded px-3 py-2" />
         </div>
       </div>
