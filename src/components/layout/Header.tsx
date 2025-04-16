@@ -7,6 +7,7 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { useWishlist } from "@/context/WishlistContext";
+import ThemeSwitcher from "@/components/layout/ThemeSwitcher";
 
 export default function Header() {
   const router = useRouter();
@@ -97,6 +98,7 @@ export default function Header() {
               Publicar propiedad
             </Link>
           </Button>
+          <ThemeSwitcher />
         </div>
 
         {/* Mobile Menu Button */}
