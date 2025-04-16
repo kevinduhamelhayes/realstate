@@ -41,22 +41,22 @@ export default function Header() {
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex md:gap-10">
-          <Link href="/" className="text-base font-semibold text-primary hover:text-primary-700 transition-colors">
+          <Link href="/" className="text-base font-semibold text-primary hover:text-primary-600 transition-colors">
             Inicio
           </Link>
-          <Link href="/leads/comprar" className="text-base font-semibold text-primary hover:text-primary-700 transition-colors">
+          <Link href="/leads/comprar" className="text-base font-semibold text-primary hover:text-primary-600 transition-colors">
             Comprar
           </Link>
-          <Link href="/leads/vender" className="text-base font-semibold text-primary hover:text-primary-700 transition-colors">
+          <Link href="/leads/vender" className="text-base font-semibold text-primary hover:text-primary-600 transition-colors">
             Vender
           </Link>
-          <Link href="/leads/busco-alquilar" className="text-base font-semibold text-primary hover:text-primary-700 transition-colors">
+          <Link href="/leads/busco-alquilar" className="text-base font-semibold text-primary hover:text-primary-600 transition-colors">
             Quiero Alquilar
           </Link>
-          <Link href="/leads/dar-en-alquiler" className="text-base font-semibold text-primary hover:text-primary-700 transition-colors">
+          <Link href="/leads/dar-en-alquiler" className="text-base font-semibold text-primary hover:text-primary-600 transition-colors">
             Dar en Alquiler
           </Link>
-          <Link href="/contact" className="text-base font-semibold text-primary hover:text-primary-700 transition-colors">
+          <Link href="/contact" className="text-base font-semibold text-primary hover:text-primary-600 transition-colors">
             Contacto
           </Link>
         </nav>
@@ -75,7 +75,7 @@ export default function Header() {
               type="submit" 
               variant="ghost" 
               size="icon" 
-              className="absolute right-0 top-0 h-10 w-10 text-primary hover:text-primary-700"
+              className="absolute right-0 top-0 h-10 w-10 text-primary hover:text-primary-600"
             >
               <LuSearch className="h-5 w-5" />
             </Button>
@@ -91,7 +91,7 @@ export default function Header() {
               </span>
             )}
           </Link>
-          <Button variant="default" size="lg" asChild className="bg-primary hover:bg-primary-700 text-white font-bold shadow-md px-6 py-2">
+          <Button variant="default" size="lg" asChild className="bg-primary hover:bg-primary-600 text-white font-bold shadow-md px-6 py-2">
             <Link href="/leads/dar-en-alquiler">
               <LuBuilding className="mr-2 h-5 w-5" />
               Publicar propiedad
@@ -117,33 +117,33 @@ export default function Header() {
         <div className="fixed inset-0 z-50 bg-black/40">
           <div className="absolute right-0 top-0 h-full w-4/5 max-w-xs bg-white shadow-2xl p-6 flex flex-col gap-4 animate-slide-in">
             <button
-              className="self-end mb-2 text-primary hover:text-primary-700"
+              className="self-end mb-2 text-primary hover:text-primary-600"
               onClick={toggleMobileMenu}
             >
               <LuX className="h-7 w-7" />
             </button>
-            <Link href="/" className="flex items-center gap-2 py-3 text-lg font-bold text-primary hover:text-primary-700" onClick={toggleMobileMenu}>
+            <Link href="/" className="flex items-center gap-2 py-3 text-lg font-bold text-primary hover:text-primary-600" onClick={toggleMobileMenu}>
               <HiHome className="h-6 w-6" /> Inicio
             </Link>
-            <Link href="/leads/comprar" className="py-3 text-lg font-bold text-primary hover:text-primary-700" onClick={toggleMobileMenu}>
+            <Link href="/leads/comprar" className="py-3 text-lg font-bold text-primary hover:text-primary-600" onClick={toggleMobileMenu}>
               Comprar
             </Link>
-            <Link href="/leads/vender" className="py-3 text-lg font-bold text-primary hover:text-primary-700" onClick={toggleMobileMenu}>
+            <Link href="/leads/vender" className="py-3 text-lg font-bold text-primary hover:text-primary-600" onClick={toggleMobileMenu}>
               Vender
             </Link>
-            <Link href="/leads/busco-alquilar" className="py-3 text-lg font-bold text-primary hover:text-primary-700" onClick={toggleMobileMenu}>
+            <Link href="/leads/busco-alquilar" className="py-3 text-lg font-bold text-primary hover:text-primary-600" onClick={toggleMobileMenu}>
               Quiero Alquilar
             </Link>
-            <Link href="/leads/dar-en-alquiler" className="py-3 text-lg font-bold text-primary hover:text-primary-700" onClick={toggleMobileMenu}>
+            <Link href="/leads/dar-en-alquiler" className="py-3 text-lg font-bold text-primary hover:text-primary-600" onClick={toggleMobileMenu}>
               Dar en Alquiler
             </Link>
-            <Link href="/contact" className="py-3 text-lg font-bold text-primary hover:text-primary-700" onClick={toggleMobileMenu}>
+            <Link href="/contact" className="py-3 text-lg font-bold text-primary hover:text-primary-600" onClick={toggleMobileMenu}>
               Contacto
             </Link>
-            <Link href="/wishlist" className="flex items-center gap-2 py-3 text-lg font-bold text-primary hover:text-primary-700" onClick={toggleMobileMenu}>
+            <Link href="/wishlist" className="flex items-center gap-2 py-3 text-lg font-bold text-primary hover:text-primary-600" onClick={toggleMobileMenu}>
               <LuHeart className="h-6 w-6" /> Mis favoritos {wishlistCount > 0 && <span className="ml-1 rounded-full bg-primary px-2 py-0.5 text-xs text-white">{wishlistCount}</span>}
             </Link>
-            <Button variant="default" size="lg" asChild className="bg-primary hover:bg-primary-700 text-white font-bold shadow-md w-full mt-2">
+            <Button variant="default" size="lg" asChild className="bg-primary hover:bg-primary-600 text-white font-bold shadow-md w-full mt-2">
               <Link href="/leads/dar-en-alquiler">
                 <LuBuilding className="mr-2 h-5 w-5" />
                 Publicar propiedad
@@ -161,7 +161,7 @@ export default function Header() {
                 type="submit" 
                 variant="ghost" 
                 size="icon" 
-                className="absolute right-0 top-0 h-full px-3 text-primary hover:text-primary-700"
+                className="absolute right-0 top-0 h-full px-3 text-primary hover:text-primary-600"
               >
                 <LuSearch className="h-5 w-5" />
               </Button>

@@ -2,9 +2,10 @@
 module.exports = {
   darkMode: ["class"],
   content: [
-    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    './pages/**/*.{ts,tsx}',
+    './components/**/*.{ts,tsx}',
+    './app/**/*.{ts,tsx}',
+    './src/**/*.{ts,tsx}',
   ],
   theme: {
     container: {
@@ -16,33 +17,61 @@ module.exports = {
     },
     extend: {
       colors: {
+        // Paleta de colores pastel suaves y profesionales
         primary: {
-          DEFAULT: "#2563EB",
-          50: "#EFF6FF",
-          100: "#DBEAFE",
-          200: "#BFDBFE",
-          300: "#93C5FD",
-          400: "#60A5FA",
-          500: "#3B82F6",
-          600: "#2563EB",
-          700: "#1D4ED8",
-          800: "#1E40AF",
-          900: "#1E3A8A",
-          950: "#172554",
+          // Turquesa/verde pastel
+          '50': '#F0F9F9',
+          '100': '#E1F3F3',
+          '200': '#C3E7E6',
+          '300': '#A4DBDA',
+          '400': '#7DCFCD',
+          DEFAULT: '#4BA3A1', // Color base turquesa pastel
+          '500': '#4BA3A1',
+          '600': '#3C8280',
+          '700': '#2E6463',
+          '800': '#1F4645',
+          '900': '#112728',
+          '950': '#081414',
         },
         secondary: {
-          DEFAULT: "#10B981",
-          50: "#ECFDF5",
-          100: "#D1FAE5",
-          200: "#A7F3D0",
-          300: "#6EE7B7",
-          400: "#34D399",
-          500: "#10B981",
-          600: "#059669",
-          700: "#047857",
-          800: "#065F46",
-          900: "#064E3B",
-          950: "#022C22",
+          // Melocotón pastel suave
+          '50': '#FDF7F7',
+          '100': '#FBEEEE',
+          '200': '#F7DDDC',
+          '300': '#F2CBCA',
+          '400': '#EDB9B7',
+          DEFAULT: '#E39E9A', // Color base melocotón pastel
+          '500': '#E39E9A',
+          '600': '#D97E79',
+          '700': '#CF5E58',
+          '800': '#BB3F39',
+          '900': '#8E2F2A',
+          '950': '#471815',
+        },
+        border: "hsl(var(--border))",
+        input: "hsl(var(--input))",
+        ring: "hsl(var(--ring))",
+        background: "hsl(var(--background))",
+        foreground: "hsl(var(--foreground))",
+        destructive: {
+          DEFAULT: "hsl(var(--destructive))",
+          foreground: "hsl(var(--destructive-foreground))",
+        },
+        muted: {
+          DEFAULT: "hsl(var(--muted))",
+          foreground: "hsl(var(--muted-foreground))",
+        },
+        accent: {
+          DEFAULT: "hsl(var(--accent))",
+          foreground: "hsl(var(--accent-foreground))",
+        },
+        popover: {
+          DEFAULT: "hsl(var(--popover))",
+          foreground: "hsl(var(--popover-foreground))",
+        },
+        card: {
+          DEFAULT: "hsl(var(--card))",
+          foreground: "hsl(var(--card-foreground))",
         },
       },
       borderRadius: {
@@ -64,16 +93,17 @@ module.exports = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: 0 },
         },
+        "slide-in": {
+          "0%": { transform: "translateX(100%)" },
+          "100%": { transform: "translateX(0)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "slide-in": "slide-in 0.3s ease-out",
       },
     },
   },
-  plugins: [
-    require("@tailwindcss/typography"),
-    require("@tailwindcss/forms"),
-    require("@tailwindcss/aspect-ratio"),
-  ],
+  plugins: [require("tailwindcss-animate")],
 }; 
